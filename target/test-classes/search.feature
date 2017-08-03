@@ -1,4 +1,5 @@
 
+  @requires_browser
   Feature: Enter a Jira
 
     Scenario Outline: Search results should be retrieved for the JQL

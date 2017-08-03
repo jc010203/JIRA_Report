@@ -2,18 +2,32 @@ package com.fmi;
 
 import com.fmi.util.TestConf;
 import cucumber.api.PendingException;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  * Created by juan.hernandez on 8/3/17.
  */
 public class SearchSteps {
 
+    private WebDriver driver;
+
+    @Before({"@requires_browser"})
+    public void buildDriver(){
+        System.setProperty("webdriver.gecko.driver", "geckodriver");
+        System.setProperty("webdriver.chrome.driver", "chromedriver");
+        driver = new ChromeDriver();
+    }
+
     @Given("^a JIRA search page$")
     public void a_JIRA_search_page() throws Throwable {
-        throw new PendingException();
+        driver.get(TestConf.getTestConf().getSearchUrl());
     }
 
     @When("^I enter the search term \"(.*?)\"Medical Reporting (\\d+)\\.(\\d+)\"(.*?)\"Sprint (\\d+) - Gene U \\((\\d+)/(\\d+)-(\\d+)/(\\d+)\\)\"(.*?)\"$")
