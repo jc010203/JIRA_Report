@@ -36,6 +36,10 @@ public class TestConf {
     @NotNull
     private String password;
 
+    @Valid
+    @NotNull
+    private String email;
+
     public static TestConf getTestConf(){
         return TEST_CONF;
     }
@@ -54,6 +58,10 @@ public class TestConf {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     private static ObjectMapper buildObjectMapper(){

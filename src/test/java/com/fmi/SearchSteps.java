@@ -1,5 +1,7 @@
 package com.fmi;
 
+import com.fmi.page.AtlassianBasePage;
+import com.fmi.page.LoginPage;
 import com.fmi.util.TestConf;
 import cucumber.api.PendingException;
 import cucumber.api.java.Before;
@@ -18,6 +20,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class SearchSteps {
 
     private WebDriver driver;
+    private Object currentPage;
 
     @Before({"@requires_browser"})
     public void buildDriver(){
@@ -28,9 +31,10 @@ public class SearchSteps {
 
     @Given("^a JIRA search page$")
     public void a_JIRA_search_page() throws Throwable {
-        driver.get(TestConf.getTestConf().getSearchUrl());
-        System.out.println("The user: " + TestConf.getTestConf().getUserName());
-        System.out.println("The password: " + TestConf.getTestConf().getPassword());
+        currentPage = AtlassianBasePage.loadUsing(driver);
+        ((AtlassianBasePage)currentPage).setEmail();
+        currentPage = ((AtlassianBasePage)currentPage).pressNext();
+        ((LoginPage)currentPage).login();
     }
 
     @When("^I enter the search term \"(.*?)\"Medical Reporting (\\d+)\\.(\\d+)\"(.*?)\"Sprint (\\d+) - Gene U \\((\\d+)/(\\d+)-(\\d+)/(\\d+)\\)\"(.*?)\"$")
