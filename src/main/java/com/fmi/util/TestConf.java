@@ -28,6 +28,14 @@ public class TestConf {
     @NotNull
     private String searchUrl;
 
+    @Valid
+    @NotNull
+    private String userName;
+
+    @Valid
+    @NotNull
+    private String password;
+
     public static TestConf getTestConf(){
         return TEST_CONF;
     }
@@ -38,6 +46,14 @@ public class TestConf {
 
     public String getSearchUrl(){
         return searchUrl;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     private static ObjectMapper buildObjectMapper(){

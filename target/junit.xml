@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="1" tests="1" time="6.322957">
-<testcase classname="Enter a Jira" name="Search results should be retrieved for the JQL" time="6.322957">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="1" tests="1" time="6.53629">
+<testcase classname="Enter a Jira" name="Search results should be retrieved for the JQL" time="6.53629">
 <skipped><![CDATA[Given a JIRA search page....................................................passed
 When I enter the search term "project = "Medical Reporting 2.0" and sprint = "Sprint 30 - Gene U (7/13-7/26)"".pending
 Then results should be retrieved............................................skipped

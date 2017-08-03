@@ -7,6 +7,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -28,6 +29,8 @@ public class SearchSteps {
     @Given("^a JIRA search page$")
     public void a_JIRA_search_page() throws Throwable {
         driver.get(TestConf.getTestConf().getSearchUrl());
+        System.out.println("The user: " + TestConf.getTestConf().getUserName());
+        System.out.println("The password: " + TestConf.getTestConf().getPassword());
     }
 
     @When("^I enter the search term \"(.*?)\"Medical Reporting (\\d+)\\.(\\d+)\"(.*?)\"Sprint (\\d+) - Gene U \\((\\d+)/(\\d+)-(\\d+)/(\\d+)\\)\"(.*?)\"$")
